@@ -1,9 +1,6 @@
 <?php
 namespace App\Entities;
 
-use App\Entities\Storage;
-use App\Entities\TelegraphText;
-
 class FileStorage extends Storage
 {
     public const PATH = './test-search';
