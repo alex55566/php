@@ -1,8 +1,5 @@
 <?php
+require_once 'vendor/autoload.php';
 
-require_once 'autoload.php';
-
-use Entities as FS;
-
-$fileStorage = new FS\FileStorage();
+$fileStorage = new \App\Entities\FileStorage();
 var_dump($fileStorage->list());
