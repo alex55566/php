@@ -24,14 +24,14 @@ class FileStorage extends Storage
         return $newSlug;
     }
 
-    public function read(string $slug): ?TT\TelegraphText
+    public function read(string $slug): ? TelegraphText
     {
         $filename = self::PATH . "/" . $slug;
 
         if (file_exists($filename)) {
             $data = unserialize(file_get_contents($filename));
 
-            $telegraphText = new TT\TelegraphText($data->author, $slug);
+            $telegraphText = new TelegraphText($data->author, $slug);
             $telegraphText->title = $data->title;
             $telegraphText->text = $data->text;
             $telegraphText->published = $data->published;
