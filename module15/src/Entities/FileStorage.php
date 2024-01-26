@@ -24,10 +24,8 @@ class FileStorage extends Storage
 
         $filename = self::PATH . "/" . $newSlug;
 
-        file_put_contents(self::PATH . "/" . $newSlug, $dataSerialize);
-        if (!file_exists($filename)) {
-            var_dump('я не существую');
-        }
+       file_put_contents($filename, $dataSerialize);
+
         return $newSlug;
     }
 

@@ -9,14 +9,62 @@
 <body>
 
 <?php
-use \App\Entities\TelegraphText;
 
+use \App\Entities\TelegraphText;
 use \App\Entities\FileStorage;
 
 require_once('autoload.php');
 ?>
 
+<?php
+
+$resMailer = true;
+$resCheckLen = true;
+
+if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    if ($name && $message) {
+        $telegraph = new TelegraphText($name, 'test.txt');
+        $telegraph->editText('Форма регистрации', $message);
+        $telegraph->text = $message;
+
+
+        try {
+            var_dump($telegraph->checklengthText());
+        } catch (TelegraphException $exception) {
+            $exception->getMessage();
+        } finally {
+            var_dump('finally');
+        }
+
+
+        $telegraph->title = 'Форма регистрации';
+//        $fileStorage = new FileStorage();
+//        $fileStorage->create($telegraph);
+    }
+//    if ($email && $name && $message) {
+//        $body = 'My name is ' . $name . ' my message is ' . $message;
+//        $resMailer = mailer(mailer_settings(), $email, 'Форма регистрации', $body,);
+//    }
+}
+
+?>
+
 <form class="form" method="post">
+    <?php
+    if (!$resMailer) {
+        ?>
+        <div>Ошибка отправки</div>
+        <?php
+    }
+    if (!$resCheckLen) {
+        ?>
+        <div>Ошибка сохранения файла. Длина не соответствует допустимой</div>
+        <?php
+    }
+    ?>
     <h1>Форма регистрации</h1>
     <div>
         <label for="name">Фамилия Имя Отчество:</label>
@@ -36,23 +84,6 @@ require_once('autoload.php');
     </div>
 </form>
 
-<?php
-if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
-
-    if ($name && $message) {
-        $telegraph = new TelegraphText($_POST['name'], 'test.txt');
-        $telegraph->editText('Форма регистрации', $_POST['message']);
-        $telegraph->text = $_POST['message'];
-        $telegraph->title = 'Форма регистрации';
-        $fileStorage = new FileStorage();
-        $fileStorage->create($telegraph);
-        var_dump($fileStorage->list());
-    }
-}
-?>
 
 </body>
 </html>

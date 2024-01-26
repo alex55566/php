@@ -1,1 +1,1 @@
-a:4:{s:5:"title";s:4:"Text";s:4:"text";s:11:"TextContent";s:6:"author";s:7:"AlexNew";s:9:"published";s:10:"2024-01-17";}
+a:4:{s:5:"title";s:33:"Форма регистрации";s:4:"text";s:8:"some msg";s:6:"author";s:4:"Alex";s:9:"published";s:8:"01.24.24";}
