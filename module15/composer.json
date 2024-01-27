@@ -9,7 +9,8 @@
         },
         "files": [
             "mailer.php",
-            "mail_settings.php"
+            "mail_settings.php",
+            "process_form.php"
         ]
     },
     "authors": [

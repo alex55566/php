@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     '92e5f5b0c3d2b9df4ff7d79989c86713' => $baseDir . '/mailer.php',
     '6634df0f9766847a54b116ff2755b28a' => $baseDir . '/mail_settings.php',
+    'dc2b032bc76a691209e865f7e5a75103' => $baseDir . '/process_form.php',
 );

@@ -7,7 +7,7 @@ function mailer_settings()
         'auth' => true,
         'port' => 465,
         'username' => 'asmolyanov555@gmail.com',
-        'password' => 'wzwzlsmnjgeyawzt',
+        'password' => '............',
         'charset' => 'UTF-8',
         'from_email' => 'asmolyanov555@gmail.com',
         'from_name' => 'Alex',

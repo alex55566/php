@@ -1,14 +1,13 @@
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 function mailer(array $mail_settings, string $toEmail, string $subject, string $body, array $files = [])
 {
     $mail = new PHPMailer(true);
     try {
-        $mail->SMTPDebug = 3;
+        $mail->SMTPDebug = 2;
         $mail->isSMTP();
         $mail->Host = $mail_settings['host'];
         $mail->SMTPAuth = $mail_settings['auth'];

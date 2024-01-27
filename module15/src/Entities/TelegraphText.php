@@ -73,12 +73,12 @@ class TelegraphText
         $this->slug = $value;
     }
 
-    public function checklengthText() {
-
-            if (strlen($this->text) < 5) {
-                throw new TelegraphException('Format is not valid');
+    public function checklengthText()
+    {
+        if (strlen($this->text) < 5 || strlen($this->text) > 500) {
+            throw new TelegraphException('Format is not valid');
         }
-            return 'Format is ok';
+        return 'Format is ok';
     }
 
     public function getSlug(): string
